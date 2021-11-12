@@ -1,7 +1,16 @@
 public class Projeto1{
   public static void main(String[] args) {
-  int tamanhoQuadriculas = 8;
-  
+  final int tamanhoQuadriculas = 8;
+  Sokoban(43521141 , tamanhoQuadriculas);
+  Sokoban(435211412 , tamanhoQuadriculas);
+  Sokoban(4352114 , tamanhoQuadriculas);
+  Sokoban(43527141 , tamanhoQuadriculas);
+  Sokoban(43525141 , tamanhoQuadriculas);
+  Sokoban(43221141 ,tamanhoQuadriculas);
+  Sokoban(43121145 , tamanhoQuadriculas);
+  Sokoban(43121541 , tamanhoQuadriculas);
+  Sokoban(43121522 , tamanhoQuadriculas);
+  Sokoban(43121152 , tamanhoQuadriculas);
   }
   /**
   *Dado um numero inteiro a função devolve o numero de digitos desse numero
@@ -10,7 +19,7 @@ public class Projeto1{
   *@requires {@code num>0}
   *@return  retorna o numero de digitos de num
   */
-  private static int digits(int num){
+  public static int digits(int num){
     int contador = 0;
     while (num > 0){
       num /= 10;
@@ -27,7 +36,7 @@ public class Projeto1{
   *@ensures {@code \result>0}
   *@return nº de vezes que o digito ocorre no num dado
   */
-  private static int occurrencesOf(int num, int d){
+  public static int occurrencesOf(int num, int d){
   int contador = 0;
   while(num > 0){
     if (num%10 == d) {
@@ -46,7 +55,7 @@ public class Projeto1{
    * e com no maximo uma ocorrência de 5 e false se alguma das
    *condições não for cumprida
    */
-  private static boolean isValid(int num){
+  public static boolean isValid(int num){
     int contadorDe5 = 0;
 
     if (num < 0) {
@@ -126,9 +135,9 @@ public class Projeto1{
     }
     primDigitoDepoisDeN = aux/10;
     segundDigitoDepoisDeN = aux%10;
-} else { //se só houver 1 digito
+  } else { //se só houver 1 digito
   primDigitoDepoisDeN = aux;
-}
+  }
 
     if ( (nDepoisDe5>0 && primDigitoDepoisDeN%2!=0) || ((nDepoisDe5>10) && ((primDigitoDepoisDeN*segundDigitoDepoisDeN) % 4 != 0)) ) {
       return true; //se a ou b, é movivel para a direita
@@ -136,42 +145,51 @@ public class Projeto1{
     return false;
   }
   
-  /**
-   *Teste teste
-   */
+ /**
+     * Verifica de o numero inteiro dado tem valor positivo com digitos de 1 a
+     * 5 e com no maximo uma ocorrencia de 5 e se tem numDigits digitos
+     *
+     *@param num numero inteiro dado
+     *@param numDigits numero inteiro que representa o numero de digitos
+     *@requires {@code numDigits <= 9 && numDigits > 0}
+     *@return retorna true se num tem valor positivo com digitos de 1 a
+     * 5 e com no maximo uma ocorrencia de 5 e se tem numDigits digitos e
+     * retorna false se não
+     */
    public static boolean isValidForGrid (int num , int numDigits ){
      if (isValid(num) && numDigits==digits(num)) {
        return true;
      }
        else{
        return false;}
-
    }
+   /**
+     * Dá print ao numero e diz se é valido para numDigits, verifica
+     * se o digito 5 ocorre e diz se é, ou não, movivel para a direita
+     *
+     * @param num numero inteiro dado
+     * @param numDigits numero inteiro que representa o numero de digitos 
+     */
    public static void Sokoban(int num, int numDigits){
-
+      System.out.print("O numero " + num);
     if (isValidForGrid(num, numDigits)) {
-      System.out.println("valido,");
+      System.out.print(" valido, ");
 
       if (occurrencesOf(num, 5) == 1) {
         System.out.print(" 5 ocorre,");
 
         if (ableToMoveRight(num)) {
-          System.out.print(" é movivel para a direita");
+          System.out.print(" é movivel para a direita. \n");
         }
         else{
-          System.out.print(" não é movivel para a direita");
+          System.out.print(" não é movivel para a direita. \n");
         }
       }
         else {
-          System.out.print(" 5 não ocorre");
-          System.out.println("");
+          System.out.print(" 5 não ocorre. \n");
         }
-
     }
     else
-    System.out.println("invalido");
-
+    System.out.println(" invalido.");
 }
-
-
 }
