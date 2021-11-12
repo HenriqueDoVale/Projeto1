@@ -1,3 +1,7 @@
+ /**
+  * @author Manuel Caetano França Lourenço 58215
+  * @author Henrique Costa Do Vale 58168
+  */
 public class Projeto1{
   public static void main(String[] args) {
   int tamanhoQuadriculas = 8;
