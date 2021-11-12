@@ -135,6 +135,10 @@ public class Projeto1{
     }
     return false;
   }
+  
+  /**
+   *Teste teste
+   */
    public static boolean isValidForGrid (int num , int numDigits ){
      if (isValid(num) && numDigits==digits(num)) {
        return true;
